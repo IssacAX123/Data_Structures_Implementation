@@ -40,4 +40,16 @@ public class SingleLinkedList {
             currentNode.next = currentNode.next.next;
         }
     }
+
+    @Override
+    public String toString() {
+        String output = "[";
+        SingleNode currentNode = head;
+        while(currentNode.next != null){
+            output += head.data + ", ";
+            currentNode = currentNode.next;
+        }
+        output = output.substring(0, output.length()-1) + "]";
+        return output;
+    }
 }
