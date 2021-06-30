@@ -1,5 +1,7 @@
 package com.issac;
 
+import java.util.Arrays;
+
 public class QueueArray {
     int size;
     int rearPointer = 0;
@@ -38,5 +40,14 @@ public class QueueArray {
         for(int i = 1; i < queue.length; i++) {
             queue[i - 1] = queue[i];
         }
+    }
+
+    @Override
+    public String toString() {
+        return "QueueArray{" +
+                "size=" + size +
+                ", rearPointer=" + rearPointer +
+                ", queue=" + Arrays.toString(queue) +
+                '}';
     }
 }
