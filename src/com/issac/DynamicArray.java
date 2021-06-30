@@ -12,4 +12,7 @@ public class DynamicArray {
     public boolean isFull(){
         return rear_pointer == dynamicArray.length;
     }
+    public boolean isEmpty(){
+        return rear_pointer == 0;
+    }
 }
