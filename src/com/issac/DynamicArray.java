@@ -37,6 +37,11 @@ public class DynamicArray {
         }
         rearPointer++;
     }
+
+    public int getAtIndex(int index){
+        return dynamicArray[index];
+    }
+
     private void growArray() {
         int[] tempArray = new int[dynamicArray.length + 4];
         for (int i = 0; i < dynamicArray.length; i++) {
