@@ -25,13 +25,29 @@ public class DynamicArray {
         }
         rear_pointer ++;
     }
-
-    private void growArray(){
+    public void insertAt(int pos, int data){
+        if(!isFull()){
+            shiftArrayRight(pos);
+            dynamicArray[pos] = data;
+        }
+        else{
+            growArray();
+            shiftArrayRight(pos);
+            dynamicArray[rear_pointer] = data;
+        }
+        rear_pointer ++;
+    }
+    private void growArray() {
         int[] tempArray = new int[dynamicArray.length + 4];
-        for(int i = 0; i< dynamicArray.length; i++){
+        for (int i = 0; i < dynamicArray.length; i++) {
             tempArray[i] = dynamicArray[i];
         }
         dynamicArray = tempArray;
         // can use System.arraycopy(dynamicArray, 0, tempArray, 0, dynamicArray.length);
+    }
+    private void shiftArrayRight(int stopPos){
+        for(int i = dynamicArray.length-1; i>= stopPos; i--) {
+            dynamicArray[i + 1] = dynamicArray[i];
+        }
     }
 }
