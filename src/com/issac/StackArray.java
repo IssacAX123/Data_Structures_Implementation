@@ -18,8 +18,17 @@ public class StackArray {
     public void push(int data) throws Exception {
         if(!isFull()) {
             stack[top] = data;
+            top ++;
         }else{
             throw new Exception("Stack capacity is full");
+        }
+    }
+    public int pop() throws Exception {
+        if(!isEmpty()) {
+            top --;
+            return stack[top];
+        }else{
+            throw new Exception("Stack is empty");
         }
     }
 }
