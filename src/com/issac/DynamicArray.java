@@ -42,6 +42,9 @@ public class DynamicArray {
         return dynamicArray[index];
     }
 
+    public void deleteAtIndex(int index){
+        shiftArrayLeft(index);
+    }
     private void growArray() {
         int[] tempArray = new int[dynamicArray.length + 4];
         for (int i = 0; i < dynamicArray.length; i++) {
@@ -53,6 +56,12 @@ public class DynamicArray {
     private void shiftArrayRight(int stopPos){
         for(int i = dynamicArray.length-1; i>= stopPos; i--) {
             dynamicArray[i + 1] = dynamicArray[i];
+        }
+    }
+
+    private void shiftArrayLeft(int startPos){
+        for(int i = startPos + 1; i < dynamicArray.length; i++) {
+            dynamicArray[i - 1] = dynamicArray[i];
         }
     }
 }
