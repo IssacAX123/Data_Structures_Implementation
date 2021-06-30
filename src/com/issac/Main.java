@@ -3,7 +3,7 @@ package com.issac;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        CircularQueueArray stack = new CircularQueueArray(4);
+        QueueStack stack = new QueueStack(4);
         stack.enqueue(2);
         System.out.println(stack);
         stack.enqueue(3);
@@ -19,7 +19,7 @@ public class Main {
         stack.enqueue(5);
         System.out.println(stack);
         stack.enqueue(6);
-        System.out.println(data);
+
         System.out.println(stack);
     }
 }

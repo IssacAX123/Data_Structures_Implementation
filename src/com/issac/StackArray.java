@@ -34,6 +34,9 @@ public class StackArray {
             throw new Exception("Stack is empty");
         }
     }
+    public int getSize(){
+        return stack.length;
+    }
 
     @Override
     public String toString() {
