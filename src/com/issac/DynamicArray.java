@@ -44,7 +44,9 @@ public class DynamicArray {
 
     public void deleteAtIndex(int index){
         shiftArrayLeft(index);
+        rearPointer --;
     }
+
     private void growArray() {
         int[] tempArray = new int[dynamicArray.length + 4];
         for (int i = 0; i < dynamicArray.length; i++) {
