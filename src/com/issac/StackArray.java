@@ -1,5 +1,7 @@
 package com.issac;
 
+import java.util.Arrays;
+
 public class StackArray {
     int size;
     int top = -1;
@@ -7,6 +9,7 @@ public class StackArray {
 
     public StackArray(int size){
         stack = new int[size];
+        top ++;
     }
     public boolean isFull(){
         return top == stack.length - 1;
@@ -30,5 +33,14 @@ public class StackArray {
         }else{
             throw new Exception("Stack is empty");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "StackArray{" +
+                "size=" + size +
+                ", top=" + top +
+                ", stack=" + Arrays.toString(stack) +
+                '}';
     }
 }

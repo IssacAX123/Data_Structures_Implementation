@@ -1,5 +1,7 @@
 package com.issac;
 
+import java.util.Arrays;
+
 public class DynamicArray {
     int rearPointer;
     int[] dynamicArray;
@@ -65,5 +67,13 @@ public class DynamicArray {
         for(int i = startPos + 1; i < dynamicArray.length; i++) {
             dynamicArray[i - 1] = dynamicArray[i];
         }
+    }
+
+    @Override
+    public String toString() {
+        return "DynamicArray{" +
+                "rearPointer=" + rearPointer +
+                ", dynamicArray=" + Arrays.toString(dynamicArray) +
+                '}';
     }
 }
