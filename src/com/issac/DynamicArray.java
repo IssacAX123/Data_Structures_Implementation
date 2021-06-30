@@ -15,4 +15,23 @@ public class DynamicArray {
     public boolean isEmpty(){
         return rear_pointer == 0;
     }
+    public void append(int data){
+        if(!isFull()){
+            dynamicArray[rear_pointer] = data;
+        }
+        else{
+            growArray();
+            dynamicArray[rear_pointer] = data;
+        }
+        rear_pointer ++;
+    }
+
+    private void growArray(){
+        int[] tempArray = new int[dynamicArray.length + 4];
+        for(int i = 0; i< dynamicArray.length; i++){
+            tempArray[i] = dynamicArray[i];
+        }
+        dynamicArray = tempArray;
+        // can use System.arraycopy(dynamicArray, 0, tempArray, 0, dynamicArray.length);
+    }
 }
