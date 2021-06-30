@@ -3,7 +3,7 @@ package com.issac;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        SingleLinkedList linkedList = new SingleLinkedList();
+        DoubleyLinkedList linkedList = new DoubleyLinkedList();
         linkedList.append(1);
         System.out.println(linkedList);
         linkedList.append(2);
