@@ -23,7 +23,7 @@ public class SingleLinkedList {
 
     public int getValueAt(int index){
         SingleNode currentNode = head;
-        for(int i=0;i<=index;i++){
+        for(int i=0;i<index;i++){
             currentNode = currentNode.next;
         }
         return currentNode.data;
@@ -32,9 +32,9 @@ public class SingleLinkedList {
     public void deleteAt(int index){
         if(index == 0){
             head = head.next;
-        }else {
+        } else {
             SingleNode currentNode = head;
-            for (int i = 0; i < index; i++) {
+            for (int i = 0; i < index-1; i++) {
                 currentNode = currentNode.next;
             }
             currentNode.next = currentNode.next.next;
@@ -45,11 +45,11 @@ public class SingleLinkedList {
     public String toString() {
         String output = "[";
         SingleNode currentNode = head;
-        while(currentNode.next != null){
-            output += head.data + ", ";
+        while(currentNode != null){
+            output += currentNode.data + ", ";
             currentNode = currentNode.next;
         }
-        output = output.substring(0, output.length()-1) + "]";
+        output = output.substring(0, output.length()-2) + "]";
         return output;
     }
 }
