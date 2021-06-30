@@ -1,29 +1,29 @@
 package com.issac;
 
 public class DynamicArray {
-    int rear_pointer;
+    int rearPointer;
     int[] dynamicArray;
 
     public DynamicArray(){
-        rear_pointer = 0;
+        rearPointer = 0;
         dynamicArray = new int[4];
     }
 
     public boolean isFull(){
-        return rear_pointer == dynamicArray.length;
+        return rearPointer == dynamicArray.length;
     }
     public boolean isEmpty(){
-        return rear_pointer == 0;
+        return rearPointer == 0;
     }
     public void append(int data){
         if(!isFull()){
-            dynamicArray[rear_pointer] = data;
+            dynamicArray[rearPointer] = data;
         }
         else{
             growArray();
-            dynamicArray[rear_pointer] = data;
+            dynamicArray[rearPointer] = data;
         }
-        rear_pointer ++;
+        rearPointer++;
     }
     public void insertAt(int pos, int data){
         if(!isFull()){
@@ -33,9 +33,9 @@ public class DynamicArray {
         else{
             growArray();
             shiftArrayRight(pos);
-            dynamicArray[rear_pointer] = data;
+            dynamicArray[pos] = data;
         }
-        rear_pointer ++;
+        rearPointer++;
     }
     private void growArray() {
         int[] tempArray = new int[dynamicArray.length + 4];
