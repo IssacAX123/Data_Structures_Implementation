@@ -1,30 +1,29 @@
 package com.issac;
 
 public class DoubleyLinkedList {
-    DoubleyNode head = null;
+    DoubleyNode head = new DoubleyNode(0);
 
     public void append(int data){
-        if(head == null){
-            head = new DoubleyNode(data);
-        }else{
-            DoubleyNode currentNode = head;
-            while(currentNode.next != null){
-                currentNode = currentNode.next;
-            }
-            currentNode.next = new DoubleyNode(data);
-            currentNode.next.prev = currentNode;
+        DoubleyNode currentNode = head;
+        while(currentNode.next != null){
+            currentNode = currentNode.next;
         }
+        currentNode.next = new DoubleyNode(data);
+        currentNode.next.prev = currentNode;
     }
 
     public void prepend(int data){
         DoubleyNode tempNode = new DoubleyNode(data);
-        tempNode.next = head;
-        head.prev = tempNode;
-        head = tempNode;
+        tempNode.next = head.next;
+        if(head.next == null){
+            append(data);
+        }
+        head.next.prev = tempNode;
+        head.next = tempNode;
     }
 
     public int getValueAt(int index){
-        DoubleyNode currentNode = head;
+        DoubleyNode currentNode = head.next;
         for(int i=0;i<index;i++){
             currentNode = currentNode.next;
         }
@@ -33,10 +32,11 @@ public class DoubleyLinkedList {
 
     public void deleteAt(int index){
         if(index == 0){
-            head = head.next;
-            head.prev = null;
+            head.next.prev = null;
+            head.next = head.next.next;
+            head.next.prev = head;
         } else {
-            DoubleyNode currentNode = head;
+            DoubleyNode currentNode = head.next;
             for (int i = 0; i < index-1; i++) {
                 currentNode = currentNode.next;
             }
@@ -47,10 +47,29 @@ public class DoubleyLinkedList {
         }
     }
 
+    public int getSize(){
+        int size = 0;
+        boolean loopStopper = true;
+        DoubleyNode currentNode = head.next;
+        if (head.next != null) {
+            while (loopStopper) {
+                if (currentNode.next == null) {
+                    loopStopper = false;
+                } else {
+                    currentNode = currentNode.next;
+                    size += 1;
+                }
+            }
+            return size;
+        }else{
+            return size;
+        }
+    }
+
     @Override
     public String toString() {
         String output = "[";
-        DoubleyNode currentNode = head;
+        DoubleyNode currentNode = head.next;
         boolean loopStopper = true;
         while(loopStopper){
             output += currentNode.data + ", ";
@@ -61,7 +80,7 @@ public class DoubleyLinkedList {
             }
         }
         output = output.substring(0, output.length()-2) + "] [";
-        while(currentNode != null){
+        while(currentNode != head && currentNode !=null){
             output += currentNode.data + ", ";
             currentNode = currentNode.prev;
         }
