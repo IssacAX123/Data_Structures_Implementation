@@ -1,19 +1,19 @@
 package com.issac;
 
+import com.issac.HashTable.HashTable;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        QueueLinkedList stack = new QueueLinkedList();
-        stack.enqueue(1);
-        System.out.println(stack);
-        stack.enqueue(2);
-        System.out.println(stack);
-        stack.enqueue(3);
-        System.out.println(stack);
-        stack.dequeue();
-        System.out.println(stack);
-        stack.dequeue();
-        System.out.println(stack);
+        HashTable dictionary = new HashTable();
+        dictionary.add("issac", 19);
+        System.out.println(dictionary);
+        dictionary.add("j", 10);
+        System.out.println(dictionary);
+        dictionary.add("hello", 21);
+        System.out.println(dictionary);
+        dictionary.get("issac");
+        System.out.println(dictionary);
 
     }
 }
