@@ -13,9 +13,12 @@ public class CircularLinkedList {
             head.prev = head.next;
         }
         else{
-            head.prev.next = new DoubleyNode(data);
-            head.prev.next.next = head;
-            head.prev = head.prev.next;
+            DoubleyNode tempNode = new DoubleyNode(data);
+            tempNode.next = head;
+            tempNode.prev = head.prev;
+            head.prev.next = tempNode;
+            head.prev = tempNode;
+
         }
     }
 
@@ -68,7 +71,12 @@ public class CircularLinkedList {
             }
         }
         output = output.substring(0, output.length()-2) + "] [";
-        currentNode = head;
+        if(head.prev != null){
+            currentNode = head.prev;
+        }else{
+            currentNode = head;
+        }
+
         loopStopper = true;
         i = 0;
         while(loopStopper){
