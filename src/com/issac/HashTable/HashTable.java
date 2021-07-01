@@ -32,20 +32,21 @@ public class HashTable {
     public int get(String key) throws Exception {
         int ogIndex = hashKey(key);
         int mainIndex = ogIndex;
-        java.lang.Integer result = valueReturner(mainIndex, key, ogIndex);
+        java.lang.Integer result = valueReturner(mainIndex, key, ogIndex, true);
         if(result == null){
             throw new Exception("key not in HashTable");
         }
         return result;
     }
 
-    private java.lang.Integer valueReturner(int index, String key, int ogIndex){
+    private java.lang.Integer valueReturner(int index, String key, int ogIndex, boolean first){
         java.lang.Integer result = table[index].find(key);
-        if(index == ogIndex){
+        if(index == ogIndex && !first){
             return null;
         }
         if(result == null){
-            valueReturner((index+3)%12, key, ogIndex);
+            first = false;
+            valueReturner((index+3)%12, key, ogIndex, first);
         }
         return result;
     }

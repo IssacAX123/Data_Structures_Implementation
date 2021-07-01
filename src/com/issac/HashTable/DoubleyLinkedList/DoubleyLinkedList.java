@@ -55,11 +55,11 @@ public class DoubleyLinkedList {
         DoubleyNode currentNode = head.next;
         boolean loopStopper = true;
         while(loopStopper){
-            if(currentNode.next == null){
+            if(currentNode.key.equals(key)) {
+                loopStopper = false;
+            }else if(currentNode.next == null){
                 loopStopper = false;
                 return null;
-            }else if(currentNode.key.equals(key)){
-                loopStopper = false;
             }else{
                 currentNode = currentNode.next;
             }
@@ -75,16 +75,19 @@ public class DoubleyLinkedList {
     public String toString(){
         String output = "[";
         DoubleyNode currentNode = head.next;
-        boolean loopStopper = true;
-        while(loopStopper){
-            output += "{"+currentNode.key + ": " + currentNode.data + "}, ";
-            if(currentNode.next == null){
-                loopStopper = false;
-            }else{
-                currentNode = currentNode.next;
+        if(currentNode != null) {
+            boolean loopStopper = true;
+            while (loopStopper) {
+                output += "{" + currentNode.key + ": " + currentNode.data + "}, ";
+                if (currentNode.next == null) {
+                    loopStopper = false;
+                } else {
+                    currentNode = currentNode.next;
+                }
             }
+            output = output.substring(0, output.length() - 2) + "]";
+            return output;
         }
-        output = output.substring(0, output.length()-2) + "]";
-        return output;
+        return "[{}]";
     }
 }
