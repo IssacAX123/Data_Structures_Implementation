@@ -3,7 +3,7 @@ package com.issac;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        DoubleyLinkedList linkedList = new DoubleyLinkedList();
+        CircularLinkedList linkedList = new CircularLinkedList();
         linkedList.append(1);
         System.out.println(linkedList);
         linkedList.append(2);
