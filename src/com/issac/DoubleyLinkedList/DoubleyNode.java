@@ -1,8 +1,8 @@
-package com.issac;
+package com.issac.DoubleyLinkedList;
 
 public class DoubleyNode {
-    DoubleyNode prev = null;
-    DoubleyNode next = null;
+    public DoubleyNode prev = null;
+    public DoubleyNode next = null;
     int data;
 
     public DoubleyNode(int data){

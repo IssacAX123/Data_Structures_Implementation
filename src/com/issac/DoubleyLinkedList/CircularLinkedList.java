@@ -1,4 +1,6 @@
-package com.issac;
+package com.issac.DoubleyLinkedList;
+
+import com.issac.DoubleyLinkedList.DoubleyNode;
 
 public class CircularLinkedList {
     DoubleyNode head = null;

@@ -1,8 +1,8 @@
-package com.issac;
+package com.issac.SingleLinkedList;
 
 public class SingleNode {
-    SingleNode next = null;
-    int data;
+    public SingleNode next = null;
+    public int data;
 
     public SingleNode(int data){
         this.data = data;

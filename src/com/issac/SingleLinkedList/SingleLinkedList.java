@@ -1,7 +1,7 @@
-package com.issac;
+package com.issac.SingleLinkedList;
 
 public class SingleLinkedList {
-    SingleNode head = null;
+    public SingleNode head = null;
 
     public void append(int data){
         if(head == null){

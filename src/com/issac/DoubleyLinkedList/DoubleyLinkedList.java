@@ -1,7 +1,7 @@
-package com.issac;
+package com.issac.DoubleyLinkedList;
 
 public class DoubleyLinkedList {
-    DoubleyNode head = new DoubleyNode(0);
+    public DoubleyNode head = new DoubleyNode(0);
 
     public void append(int data){
         DoubleyNode currentNode = head;

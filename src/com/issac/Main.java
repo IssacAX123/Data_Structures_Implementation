@@ -3,16 +3,16 @@ package com.issac;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        StackLinkedList stack = new StackLinkedList();
-        stack.push(1);
+        QueueLinkedList stack = new QueueLinkedList();
+        stack.enqueue(1);
         System.out.println(stack);
-        stack.push(2);
+        stack.enqueue(2);
         System.out.println(stack);
-        stack.push(3);
+        stack.enqueue(3);
         System.out.println(stack);
-        stack.pop();
+        stack.dequeue();
         System.out.println(stack);
-        stack.pop();
+        stack.dequeue();
         System.out.println(stack);
 
     }

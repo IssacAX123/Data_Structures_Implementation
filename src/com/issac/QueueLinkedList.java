@@ -2,21 +2,21 @@ package com.issac;
 
 import com.issac.DoubleyLinkedList.DoubleyLinkedList;
 
-public class StackLinkedList {
+public class QueueLinkedList {
     DoubleyLinkedList stack;
 
-    public StackLinkedList(){
+    public QueueLinkedList(){
         stack = new DoubleyLinkedList();
     }
     public boolean isEmpty(){
         return (stack.head.next == null);
     }
 
-    public void push(int data){
-        stack.prepend(data);
+    public void enqueue(int data){
+        stack.append(data);
     }
 
-    public int pop() throws Exception {
+    public int dequeue() throws Exception {
         if(!isEmpty()) {
             int value =  stack.getValueAt(0);
             stack.deleteAt(0);
