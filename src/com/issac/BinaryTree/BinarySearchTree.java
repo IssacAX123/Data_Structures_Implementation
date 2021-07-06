@@ -65,8 +65,32 @@ public class BinarySearchTree {
         return elements;
     }
 
+    public DynamicArray levelOrderTraversal() throws Exception {
+        DynamicArray elements = new DynamicArray();
+        QueueLinkedList queue = new QueueLinkedList();
+        DynamicArray final_list = new DynamicArray();
+        queue.enqueue(this);
+        while(!queue.isEmpty()) {
+            BinarySearchTree node = queue.dequeue();
+            final_list.append(node.data);
+            if (node.left != null) {
+                queue.enqueue(node.left);
+            }
+            if (node.right != null) {
+                queue.enqueue(node.right);
+            }
+        }
+        return final_list;
+    }
+
     @Override
     public String toString() {
-        return postOrderTraversal().toString();
+        String x = null;
+        try {
+             x = levelOrderTraversal().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return x;
     }
 }
