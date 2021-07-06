@@ -39,9 +39,21 @@ public class BinarySearchTree {
         }
         return elements;
     }
+    public DynamicArray inOrderTraversal(){
+        DynamicArray elements = new DynamicArray();
+
+        if(this.left != null){
+            elements.append(this.left.inOrderTraversal());
+        }
+        elements.append(this.data);
+        if(this.right != null){
+            elements.append(this.right.inOrderTraversal());
+        }
+        return elements;
+    }
 
     @Override
     public String toString() {
-        return preOrderTraversal().toString();
+        return inOrderTraversal().toString();
     }
 }
