@@ -11,6 +11,7 @@ public class Main {
         tree.add(8);
         tree.add(50);
         tree.add(25);
+        tree.delete(4);
         System.out.println(tree);
     }
 }

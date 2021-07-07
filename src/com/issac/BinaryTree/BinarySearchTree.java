@@ -82,12 +82,66 @@ public class BinarySearchTree {
         }
         return final_list;
     }
+    public boolean search(int data){
+        boolean result = false;
+        if(data < this.data){
+            if(this.left != null){
+                result = this.left.search(data);
+            }else{
+                result = false;
+            }
+        }else if(data > this.data) {
+            if(this.right != null){
+                result = this.right.search(data);
+            }else {
+                result = false;
+            }
+        } else{
+            result = true;
+        }
+        return result;
+    }
+    public int getMin(){
+        if(this.left == null){
+            return this.data;
+        }
+        return this.left.getMin();
+    }
+
+    public int getMax(){
+        if(this.right == null){
+            return this.data;
+        }
+        return this.right.getMin();
+    }
+
+    public BinarySearchTree delete(int data){
+        if(data < this.data) {
+            this.left = this.left.delete(data);
+        } else if(data > this.data) {
+            this.right = this.right.delete(data);
+        } else {
+            // node with no leaf nodes
+            if(this.left == null && this.right == null) {
+                return null;
+            } else if(this.left == null) {
+                return this.right;
+            } else if(this.right == null) {
+                return this.left;
+            } else {
+                int minValue = getMin();
+                this.data = minValue;
+                this.left = this.left.delete(minValue);
+            }
+        }
+        return this;
+    }
 
     @Override
     public String toString() {
         String x = null;
         try {
-             x = levelOrderTraversal().toString();
+             x = preOrderTraversal().toString();
         } catch (Exception e) {
             e.printStackTrace();
         }
